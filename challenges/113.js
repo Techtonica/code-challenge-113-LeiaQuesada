@@ -29,10 +29,35 @@
 
 //_**Note: in the above example, numbers array should remain unchanged after being used by your function.**_
 
-function betterFilter("add 2 arguments here") {
-  // and use them here
+function betterFilter(num, funct) {
+  //iterate thru array, if funct true, return ele
+ 
+  const arr = num.map(check);
+  
+  function check(value, index, num) {
+    if (funct(value)) {
+      return value;
+    }
+  }
+
+  return arr;
+}
+      
+function onlyEvens(n) {
+  if (n % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
+numbers = [1,2,3,4,5] //example
+
+betterFilter(numbers, onlyEvens);  //example use of your betterFilter fn
+
+}
+
+      
 function onlyEvens(n) {
   if (n % 2 == 0) {
     return true;
